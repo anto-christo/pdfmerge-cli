@@ -1,16 +1,10 @@
 'use strict';
 
-const ui = require('./interface');
-const displayPrompts = require('./prompt')
+const prompt = require('./prompt')
 
-let showNewScreen = () => {
-  ui.clearScreen();
-  ui.showHeader();
-}
-
-let main = () => {
-  showNewScreen();
-  displayPrompts();
+let main = async () => {
+  let filesToBeMerged = await prompt.getFilesToBeMerged();
+  let destinationFileName = await prompt.askDestinationName();
 }
 
 module.exports = main;

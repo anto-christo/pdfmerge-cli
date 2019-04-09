@@ -2,6 +2,7 @@
 
 const readline = require('readline');
 const cfonts = require('cfonts');
+const chalk = require('chalk');
 
 let clearScreen = () => {
   const blank = '\n'.repeat(process.stdout.rows);
@@ -18,7 +19,16 @@ let showHeader = () => {
   });
 }
 
-module.exports = {
-  clearScreen,
-  showHeader
+let showNewScreen = () => {
+  clearScreen();
+  showHeader();
 }
+
+let showMessage = (color, message) => {
+  console.log(chalk[color](message));
+}
+
+module.exports = {
+  showNewScreen,
+  showMessage
+};

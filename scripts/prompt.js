@@ -4,8 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 const fuzzy = require('fuzzy');
+const ui = require('./interface');
+const autocomplete = require('inquirer-autocomplete-prompt');
 
-inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
+inquirer.registerPrompt('autocomplete', autocomplete);
 
 let getAllPdfFiles = () => {
   let pdfFiles = [];
@@ -17,7 +19,7 @@ let getAllPdfFiles = () => {
 
 let getPdfSuggestions = (answers, input) => {
   input = input || '';
-  return new Promise(function (resolve) {
+  return new Promise((resolve) => {
     var fuzzyResult = fuzzy.filter(input, getAllPdfFiles());
     resolve(
       fuzzyResult.map(function (el) {
@@ -50,13 +52,32 @@ let askNumOfPdf = () => {
   })
 }
 
-let displayPrompts = async () => {
+let getFilesToBeMerged = async () => {
+  ui.showNewScreen();
   let num = await askNumOfPdf();
+  ui.showNewScreen();
+  ui.showMessage('green', 'Select all the PDF files to be merged in order');
   let filesToBeMerged = [];
   for (let i = 0; i < num; i++) {
+    ui.showMessage('yellow', `\nSelect PDF file no. ${i+1}`)
     filesToBeMerged.push(await askFileName());
   }
-  console.log(filesToBeMerged);
+  return filesToBeMerged;
 }
 
-module.exports = displayPrompts;
+let askDestinationName = () => {
+  ui.showNewScreen();
+  return inquirer.prompt({
+    name: 'name',
+    type: 'input',
+    message: 'Enter destination file name:',
+    default: 'merged.pdf'
+  }).then((input) => {
+    return input.name;
+  })
+}
+
+module.exports = {
+  getFilesToBeMerged,
+  askDestinationName
+};
