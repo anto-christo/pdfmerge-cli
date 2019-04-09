@@ -1,0 +1,29 @@
+{
+  "name": "pdf-merge-cli",
+  "version": "1.0.0",
+  "description": "A Command Line Interface for quickly merging PDF files.",
+  "main": "index.js",
+  "bin": {
+    "pdfmerge": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anto-christo/pdf-merge-cli.git"
+  },
+  "author": "Anto Christopher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anto-christo/pdf-merge-cli/issues"
+  },
+  "homepage": "https://github.com/anto-christo/pdf-merge-cli#readme",
+  "dependencies": {
+    "cfonts": "^2.4.2",
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "easy-pdf-merge": "^0.2.1",
+    "inquirer": "^6.2.2"
+  }
+}
