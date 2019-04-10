@@ -6,7 +6,7 @@ const mergeFiles = require('./merge');
 const ui = require('./interface');
 
 let displaySelectedFiles = filesToBeMerged => {
-  ui.showMessage('yellow', 'Source Files:');
+  ui.showMessage('yellow', 'Selected Files:');
   filesToBeMerged.forEach(file => {
     ui.showMessage('cyan', file);
   });
@@ -23,15 +23,19 @@ let startMerge = async (filesToBeMerged, destinationFileName) => {
   try {
     await mergeFiles(filesToBeMerged, destinationFileName);
     spinner.succeed();
-    ui.showMessage('green', 'Successfully merged the files !!!');
+    ui.showMessage('green', '\nSuccessfully merged the files !!!');
   } catch (err) {
     spinner.fail();
-    ui.showMessage('red', `An error occured while merging\n${err}`);
+    ui.showMessage('red', `\nAn error occured while merging\n${err}`);
   }
 }
 
 let main = async () => {
+  ui.showNewScreen();
   let filesToBeMerged = await prompt.getFilesToBeMerged();
+  ui.showNewScreen();
+  displaySelectedFiles(filesToBeMerged);
+  console.log('\n');
   let destinationFileName = await prompt.askDestinationName();
   ui.showNewScreen();
   displaySelectedFiles(filesToBeMerged);

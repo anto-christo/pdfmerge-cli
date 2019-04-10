@@ -56,7 +56,6 @@ let askNumOfPdf = () => {
 }
 
 let getFilesToBeMerged = async () => {
-  ui.showNewScreen();
   let num = await askNumOfPdf();
   ui.showNewScreen();
   ui.showMessage('green', 'Select all the PDF files to be merged in order');
@@ -69,7 +68,6 @@ let getFilesToBeMerged = async () => {
 }
 
 let askDestinationName = () => {
-  ui.showNewScreen();
   return inquirer.prompt({
     name: 'name',
     type: 'input',
