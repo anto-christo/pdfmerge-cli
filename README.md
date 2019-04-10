@@ -1,17 +1,15 @@
 <p align="center">
-  <img src="assets/pdfmerge-logo.png">
-</p>
-<h1 align="center">PDFMerge CLI</h1>  
+  <img src="https://github.com/anto-christo/pdfmerge-cli/blob/master/assets/pdfmerge-logo.png">
+</p>  
 
-<p align="center">  
-A simple CLI tool for quickly merging PDF files.
-</p>
+## PDFMerge CLI  
+> A simple CLI tool for quickly merging PDF files.  
 
 ---  
 
 # Installation  
 ```
-npm i -g https://github.com/anto-christo/pdf-merge-cli
+npm i -g pdfmerge-cli
 ```
 
 # Usage
