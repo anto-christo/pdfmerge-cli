@@ -11,19 +11,18 @@ A simple CLI tool for quickly merging PDF files.
 npm i -g pdfmerge-cli
 ```
 
-# Usage
+# Usage  
+1. Open Command Prompt and go to the directory containing the PDF files to be merged.
 
-#### Step 1
-Execute `pdfmerge` command in the directory containing the PDF files.
+2. Type `pdfmerge` and hit Enter.
 
-#### Step 2
-Enter the number of PDF files to be merged. (You can press enter and skip this step, default number of files will be 2).
+3. The interface will ask you the number of files to be merged. Type the number and press Enter. *Note: You can skip this step by just pressing Enter. The default number of files to be merged will be taken as 2*.
 
-#### Step 3
-Select the PDF files to be merged in order from the list shown. You can type the file name for suitable file suggestions.
+4. Now select the files by navigating with the help of Up and Down arrow keys and press Enter to select the particular file from the list. 
 
-#### Step 4
-Enter a name for the destination (merged) file. (You can press enter and skip this step, default destination file name will be `merged.pdf`).
+5. After all files have been selected, the interface will ask the name for destination (merged) file. Type the name of your choice and press Enter. *Note: You can skip this step by just pressing Enter. The default destination file name will be taken as merged.pdf*.
+
+6. You have your merged PDF ready in the current directory !!!
 
 # Demo
 Coming soon

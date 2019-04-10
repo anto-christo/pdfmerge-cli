@@ -1,6 +1,6 @@
 {
   "name": "pdfmerge-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple CLI tool for quickly merging PDF files.",
   "main": "index.js",
   "bin": {
