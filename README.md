@@ -5,8 +5,6 @@
 ## PDFMerge CLI  
 > A simple CLI tool for quickly merging PDF files.  
 
----  
-
 # Installation  
 ```
 npm i -g pdfmerge-cli
