@@ -45,9 +45,12 @@ let askNumOfPdf = () => {
   return inquirer.prompt({
     name: 'num',
     type: 'number',
-    message: 'Enter the number of PDF(s) to be merged:',
-    default: 2
+    message: 'Enter the number of PDF(s) to be merged (Default: 2):',
   }).then((input) => {
+    console.log(input.num);
+    if (!input.num) {
+      return 2;
+    }
     return input.num;
   })
 }
@@ -59,7 +62,7 @@ let getFilesToBeMerged = async () => {
   ui.showMessage('green', 'Select all the PDF files to be merged in order');
   let filesToBeMerged = [];
   for (let i = 0; i < num; i++) {
-    ui.showMessage('yellow', `\nSelect PDF file no. ${i+1}`)
+    ui.showMessage('yellow', `\nSelect PDF file no. ${i + 1}`)
     filesToBeMerged.push(await askFileName());
   }
   return filesToBeMerged;
@@ -70,10 +73,16 @@ let askDestinationName = () => {
   return inquirer.prompt({
     name: 'name',
     type: 'input',
-    message: 'Enter destination file name:',
-    default: 'merged.pdf'
+    message: 'Enter destination file name (Default: merged.pdf) :',
   }).then((input) => {
-    return input.name;
+    if (!input.name) {
+      return 'merged.pdf';
+    } else {
+      if (!input.name.includes('.pdf')) {
+        return `${input.name}.pdf`;
+      }
+      return input.name;
+    }
   })
 }
 
