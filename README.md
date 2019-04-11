@@ -4,6 +4,9 @@
 <p>
 A simple CLI tool for quickly merging PDF files.
 </p>
+<img src="https://img.shields.io/npm/v/pdfmerge-cli.svg">
+<img src="https://img.shields.io/npm/dt/pdfmerge-cli.svg">
+<img src="https://img.shields.io/badge/Made%20With-JavaScript-yellow.svg">
 </div>  
 
 # Installation  
