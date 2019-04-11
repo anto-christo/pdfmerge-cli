@@ -27,8 +27,8 @@ npm i -g pdfmerge-cli
 
 6. You have your merged PDF ready in the current directory !!!
 
-# Demo
-Coming soon
+# Demo  
+<img src="./assets/demo.gif" align="center">  
 
 # Credits
 PDFMerge CLI uses [easy-pdf-merge](https://github.com/karuppiah7890/easy-pdf-merge) for merging the files.
