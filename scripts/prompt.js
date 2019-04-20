@@ -85,6 +85,7 @@ let askDestinationName = () => {
 }
 
 module.exports = {
+  getAllPdfFiles,
   getFilesToBeMerged,
   askDestinationName
 };

@@ -28,7 +28,13 @@ let showMessage = (color, message) => {
   console.log(chalk[color](message));
 }
 
+let showError = (message) => {
+  console.log(chalk.red(message));
+  process.exit();
+}
+
 module.exports = {
   showNewScreen,
-  showMessage
+  showMessage,
+  showError
 };

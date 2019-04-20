@@ -26,12 +26,13 @@ let startMerge = async (filesToBeMerged, destinationFileName) => {
     ui.showMessage('green', '\nSuccessfully merged the files !!!');
   } catch (err) {
     spinner.fail();
-    ui.showMessage('red', `\nAn error occured while merging\n${err}`);
+    ui.showError(`\nAn error occured while merging\n${err}`);
   }
 }
 
 let main = async () => {
   ui.showNewScreen();
+  prompt.getAllPdfFiles().length === 0 ? ui.showError('No PDF files found in the current directory.') : null;
   let filesToBeMerged = await prompt.getFilesToBeMerged();
   ui.showNewScreen();
   displaySelectedFiles(filesToBeMerged);
