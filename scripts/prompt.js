@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 const fuzzy = require('fuzzy');
-const ui = require('./interface');
+const ui = require('./ui');
 const autocomplete = require('inquirer-autocomplete-prompt');
 
 inquirer.registerPrompt('autocomplete', autocomplete);

@@ -3,7 +3,11 @@
 const ora = require('ora');
 const prompt = require('./prompt')
 const mergeFiles = require('./merge');
-const ui = require('./interface');
+const ui = require('./ui');
+
+let checkAnyPdfPresent = (files) => {
+  files.length === 0 ? ui.showError('No PDF files found in the current directory.') : null;
+}
 
 let displaySelectedFiles = filesToBeMerged => {
   ui.showMessage('yellow', 'Selected Files:');
@@ -30,9 +34,9 @@ let startMerge = async (filesToBeMerged, destinationFileName) => {
   }
 }
 
-let main = async () => {
+let mergeSelected = async () => {
   ui.showNewScreen();
-  prompt.getAllPdfFiles().length === 0 ? ui.showError('No PDF files found in the current directory.') : null;
+  checkAnyPdfPresent(prompt.getAllPdfFiles());
   let filesToBeMerged = await prompt.getFilesToBeMerged();
   ui.showNewScreen();
   displaySelectedFiles(filesToBeMerged);
@@ -44,4 +48,18 @@ let main = async () => {
   await startMerge(filesToBeMerged, destinationFileName);
 }
 
-module.exports = main;
+let mergeAll = async () => {
+  ui.showNewScreen();
+  let filesToBeMerged = prompt.getAllPdfFiles();
+  checkAnyPdfPresent(filesToBeMerged);
+  displaySelectedFiles(filesToBeMerged);
+  console.log('\n');
+  let destinationFileName = await prompt.askDestinationName();
+  displayDestinationName(destinationFileName);
+  await startMerge(filesToBeMerged, destinationFileName);
+}
+
+module.exports = {
+  mergeSelected,
+  mergeAll
+};

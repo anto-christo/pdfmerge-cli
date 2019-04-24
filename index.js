@@ -3,14 +3,15 @@
 const program = require('commander');
 const process = require('process');
 const package = require('./package.json');
-const main = require('./scripts/main');
+const { mergeSelected, mergeAll } = require('./scripts/main');
 
 program
-  .version(package.version);
-
-program
+  .version(package.version)
+  .option('-a, --all', 'Merge all PDF files in current directory')
   .parse(process.argv);
 
-if (!program.args.length) {
-  main();
+if (program.all) {
+  mergeAll();
+} else {
+  mergeSelected();
 }

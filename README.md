@@ -25,7 +25,15 @@ npm i -g pdfmerge-cli
 
 5. After all files have been selected, the interface will ask the name for destination (merged) file. Type the name of your choice and press Enter. *Note: You can skip this step by just pressing Enter. The default destination file name will be taken as merged.pdf*.
 
-6. You have your merged PDF ready in the current directory !!!
+6. You have your merged PDF ready in the current directory !!!  
+
+# Options  
+
+| Option | Description |
+|--|--|
+| -a, --all | Merge all PDF files in the current directory |
+| -h, --help | View usage information |
+| -V, --version | View version number |  
 
 # Demo  
 <img src="./assets/demo.gif" align="center">  
